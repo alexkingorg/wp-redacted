@@ -7,7 +7,7 @@ Description: Replace content with [REDACTED].
 
 function akv3_shortcode_redacted($atts, $content) {
 // allows for styling as desired in the single post view
-	if (is_single()) {
+	if (is_single() || apply_filters('akv3_shortcode_redacted_forced', false)) {
 		$output = '<span class="redacted">'.__('REDACTED', 'ak-redacted').'</span>';
 	}
 // handles situations where tags are stripped (feeds, excerpts, etc.)
